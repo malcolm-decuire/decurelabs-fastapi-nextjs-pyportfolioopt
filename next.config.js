@@ -1,4 +1,10 @@
+// //////////THIS WORKED/////////////////////////
+// //////////THIS WORKED/////////////////////////
+
+
 // /** @type {import('next').NextConfig} */
+// const webpack = require("webpack");
+
 // const nextConfig = {
 //   rewrites: async () => {
 //     return [
@@ -25,14 +31,27 @@
 //       },
 //     ];
 //   },
+//   webpack: (config) => {
+//     // Add polyfill for buffer
+//     config.plugins.push(
+//       new webpack.ProvidePlugin({
+//         Buffer: ["buffer", "Buffer"],
+//       })
+//     );
+
+//     // Ensure fallback for Node.js modules
+//     config.resolve.fallback = {
+//       ...config.resolve.fallback,
+//       buffer: require.resolve("buffer/"),
+//     };
+
+//     return config;
+//   },
 // };
 
 // module.exports = nextConfig;
 
-
-
-
-
+// //////////ABOVE WORKED/////////////////////////
 
 /** @type {import('next').NextConfig} */
 const webpack = require("webpack");
@@ -74,7 +93,7 @@ const nextConfig = {
     // Ensure fallback for Node.js modules
     config.resolve.fallback = {
       ...config.resolve.fallback,
-      buffer: require.resolve("buffer/"),
+      buffer: require.resolve("buffer"), // Corrected line
     };
 
     return config;
