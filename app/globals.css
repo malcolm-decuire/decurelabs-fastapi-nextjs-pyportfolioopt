@@ -1,4 +1,4 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -24,4 +24,167 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+} */
+
+/* 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --navbar-height: 60px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+button[aria-label="Open Navigation Menu"],
+button[aria-label="Close Navigation Menu"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(var(--foreground-rgb));
+  color: rgb(var(--background-end-rgb));
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+button[aria-label="Open Navigation Menu"]:hover,
+button[aria-label="Close Navigation Menu"]:hover {
+  transform: scale(1.1);
+} */
+
+
+
+/* Tailwind base and utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+
+  /* Breakpoints for responsiveness */
+  --card-max-width: 1200px;
+  --modal-max-width: 90%;
+  --plot-height: 500px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.card {
+  margin: 16px;
+  padding: 16px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  max-width: var(--card-max-width);
+  width: 100%; /* Ensure it scales within the container */
+  box-sizing: border-box;
+  background-color: white; /* Ensure contrast on light and dark modes */
+}
+
+.js-plotly-plot {
+  width: 100% !important; /* Make the chart fill the parent container */
+  height: var(--plot-height) !important; /* Set a default height */
+  overflow: hidden;
+  max-width: 100%; /* Ensure the plot stays responsive */
+  box-sizing: border-box;
+}
+
+.plot-container {
+  margin: 0 auto; /* Center the plot within its container */
+}
+
+.plot-tooltip {
+  position: absolute;
+  top: -40px; /* Move the tooltip above the plot */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark tooltip for better visibility */
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.modal-content {
+  max-width: var(--modal-max-width);
+  margin: auto;
+  padding: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white; /* Ensure modal visibility */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add depth to modal */
+}
+
+@media (max-width: 768px) {
+  /* Adjust for smaller screens */
+  :root {
+    --plot-height: 400px;
+  }
+
+  .card {
+    margin: 12px;
+    padding: 12px;
+  }
+
+  .modal-content {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further adjustment for mobile */
+  .js-plotly-plot {
+    height: 300px !important; /* Reduce height for mobile */
+  }
+
+  .modal-content {
+    padding: 8px;
+  }
 }

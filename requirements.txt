@@ -1,2 +1,16 @@
+# template included 
 fastapi==0.115.0
 uvicorn[standard]==0.30.6
+
+
+# Data Manipulation and Analysis
+numpy
+pandas
+pandas-datareader
+scikit-learn
+pyportfolioopt==1.5.2
+
+# DATA VIZ
+seaborn
+matplotlib
+plotly
